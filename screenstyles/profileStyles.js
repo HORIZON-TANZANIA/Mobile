@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
     backgroundColor: 'white',
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 20,
     paddingVertical: 12,
-    marginTop: 30,
+    marginTop: '22%',
     borderRadius: 10,
     width: '90%',
     alignSelf: 'center',
@@ -207,12 +207,24 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     paddingLeft: 20,
   },
-  previewModalContainer: {
-    width: '100%',
-    height: '100%',
+  previewImageContainer: {
+    backgroundColor: 'white',
+    width: '90%',
+    height: '50%',
+    borderRadius: 10,
+    padding: 20,
+    alignItems: 'center',
+  },
+  previewImageTitle: {
+    fontSize: 20,
+    paddingBottom: 20,
   },
   previewImage: {
-    width: '60%',
+    width: '100%',
+    height: '70%',
+    // resizeMode: 'contain',
+    borderRadius: 10,
+    marginBottom: '4%',
   },
 });
 

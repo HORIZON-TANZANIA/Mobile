@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Perks",
-    "slug": "perks",
+    "slug": "Perks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins": [
+    "plugins": [ 
       [
         "expo-image-picker",
         {
@@ -19,13 +19,15 @@
         }
       ],
       [
-        "expo-barcode-scanner",
+        "expo-barcode-scanner", 
         {
           "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
         }
       ]
     ],
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -49,7 +51,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f7a3ca99-c0ec-4524-99f4-878f0c17ebf5"
+        "projectId": "da497518-a061-431f-8c54-f5b8b3a6dc39"
       }
     }
   }

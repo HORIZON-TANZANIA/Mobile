@@ -23,11 +23,6 @@ const signupSchema = yup.object({
 export default function SignUp() {
   const navigation = useNavigation();
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const { control, handleSubmit, formState: { errors } } = useForm({
@@ -35,16 +30,16 @@ export default function SignUp() {
     mode: 'onChange'
   });
 
-  const handleSignup = async () => {
+  const handleSignup = async (data) => {
     try {
       setIsLoading(true);
       const response = await axios.post(`${BaseUrl}/api/auth/register`, {
-        email: email,
-        password: password,
-        fname: firstName,
-        lname: lastName,
-        phone_number: phoneNumber,
-        username: firstName,
+        email: data.email,
+        password: data.password,
+        fname: data.firstName,
+        lname: data.lastName,
+        phone_number: data.phoneNumber,
+        username: data.firstName,
       }, {
         headers: {
           'Content-Type': 'application/json',

@@ -137,11 +137,11 @@ export default function Home() {
       if (status === "granted") {
         let location = await Location.getCurrentPositionAsync({});
         setRecommendationText("");
-        toggleModal();
         setUserLocation(`Latitude: ${location.coords.latitude}, Longitude: ${location.coords.longitude}`);
       } else {
         console.log("Location permission denied");
       }
+      toggleModal();
     } catch (error) {
       console.error("Error requesting location permission:", error);
     } finally {
@@ -299,12 +299,40 @@ export default function Home() {
             )}
           </View>
         </View>
+
       )}
 
       {/* for the restaurant recommendations */}
-      <TouchableOpacity style={styles.recommendButton} onPress={toggleModal}>
+      <TouchableOpacity style={styles.recommendButton} onPress={requestLocationPermission}>
         <Text style={styles.recommendText}>Add Recommendation</Text>
       </TouchableOpacity>
+
+      <Modal animationType="slide" transparent={true} visible={isModalVisible}>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Enter restaurant name</Text>
+            <TextInput
+              style={styles.modalTextInput}
+              multiline
+              placeholder={"Enter your recommendation..."}
+              value={recommendationText}
+              onChangeText={setRecommendationText}
+            />
+            <View style={styles.modalbuttonview}>
+              <TouchableOpacity style={styles.modalButton} onPress={closeModal}>
+                <Text style={styles.modalButtonText}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.modalButton}
+                onPress={submitRecommendation}
+              >
+                <Text style={styles.modalButtonText}>Done</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       </ScrollView>
     </SafeAreaView>
   );
